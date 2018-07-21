@@ -1,12 +1,53 @@
-# bfx-util
+# alik-mf
 
 ## Setup
 
-The project inherits code from a base repository.
+Run two Grapes:
 
-All new repositories should inheritate from the closest parent: `bfx-util-net-js` inherits from `bfx-util-js`; `bfx-util-js` inheritates from `bfx-svc-js` (the root service repository)
+```
+grape --dp 20001 --aph 30001 --bn '127.0.0.1:20002'
+grape --dp 20002 --aph 40001 --bn '127.0.0.1:20001'
+```
 
-Add it with:
+```
+# Add base as upstream:
+git remote add upstream https://github.com/bitfinexcom/bfx-util-js
 
-* File names: parent is rightmost (i.e `api.net.util.wrk.js` : wrk>util>net>api)
-* Class names: parent is leftmost (i.e `WkrUtilNetApi`)
+# Configure service:
+cp config/common.json.example config/common.json
+cp config/facs/grc.config.json.example config/facs/grc.config.json
+cp config/mf.alik.json.example config/mf.alik.json
+```
+
+
+### Boot worker
+
+```
+node worker.js --env=development --wtype=wrk-alik-mf-api --apiPort 1331
+```
+
+## Grenache API
+
+### action: 'getHelloWorld'
+
+  - `args`: &lt;Array&gt;
+    - `0`: &lt;Object&gt;
+      - `name`: &lt;String&gt; Name to greet
+
+**Response:**
+
+  - &lt;String&gt; The Greeting
+
+**Example Payload:**
+
+```js
+args: [ { name: 'Paolo' } ]
+```
+
+**Example Response:**
+
+```js
+'Hello Paolo'
+```
+
+Example: [example.js](example.js)
