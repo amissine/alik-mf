@@ -8,3 +8,8 @@ config/facs/*.json
 logs
 sec
 package-lock.json
+
+# vim
+*.swo
+*.swp
+*~

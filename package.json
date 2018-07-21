@@ -1,15 +1,20 @@
 {
-  "name": "bfx-util-js",
-  "version": "0.0.5",
+  "name": "alik-mf",
+  "version": "0.0.0",
   "private": true,
-  "description": "Bitfinex Service",
+  "description": "ALIK Market Feed Service",
   "author": {
-    "name": "prdn",
-    "email": "paolo@bitfinex.com"
+    "name": "Alec Missine",
+    "email": "support@minetats.com"
   },
   "keywords": [
-    "bitfinex"
+    "minetats"
   ],
+  "scripts": {
+    "test": "npm run lint && npm run unit",
+    "unit": "mocha",
+    "lint": "standard"
+  },
   "dependencies": {
     "async": "^2.6.0",
     "bfx-facs-api": "git+https://github.com/bitfinexcom/bfx-facs-api.git",
@@ -19,6 +24,7 @@
     "bfx-svc-boot-js": "https://github.com/bitfinexcom/bfx-svc-boot-js.git",
     "bfx-wrk-api": "git+https://github.com/bitfinexcom/bfx-wrk-api.git",
     "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
+    "grenache-grape": "git+https://github.com/amissine/grenache-grape.git",
     "lodash": "^4.17.10",
     "yargs": "^6.3.0"
   },
@@ -28,12 +34,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitfinexcom/bfx-util-js.git"
+    "url": "https://github.com/amissine/alik-mf.git"
   },
   "maintainers": [
     {
-      "name": "prdn",
-      "email": "paolo@bitfinex.com"
+      "name": "Alec Missine",
+      "email": "support@minetats.com"
     }
   ],
   "devDependencies": {
