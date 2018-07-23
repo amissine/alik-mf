@@ -12,16 +12,21 @@ describe('Test on macOS', () => {
   before('Start 2 DHT nodes and 1 worker', done => {
     spawn('ttab', nodeArgs())
     spawn('ttab', nodeArgs())
-    spawn('ttab', workerArgs())
+    setTimeout(spawn, 5000, 'ttab', workerArgs())
     done()
   })
   after('Stop all nodes', done => {
     done()
   })
-  it('runs example', done => {
-    let peer = require('../../example')
-    peer.done = done
-  }).timeout(9000)
+  it('runs the example', done => {
+    setTimeout(() => {
+      let peer = require('../../example')
+      setTimeout(() => {
+        console.log(peer.link)
+        done()
+      }, 4000)
+    }, 10000)
+  }).timeout(20000)
 })
 function nodeArgs () {
   let bn = `'127.0.0.1:${dpBase + nodeCount++}'`

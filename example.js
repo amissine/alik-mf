@@ -18,8 +18,7 @@ const query = {
   args: [ { name: 'Paolo' } ]
 }
 
-// peer.request('alik:mf', query, { timeout: 10000 }, (err, data) => {
-setTimeout(peer.request, 3000, 'alik:mf', query, { timeout: 10000 }, (err, data) => {
+peer.request('alik:mf', query, { timeout: 10000 }, (err, data) => {
   if (err) {
     console.error(err)
     process.exit(1)
@@ -28,7 +27,6 @@ setTimeout(peer.request, 3000, 'alik:mf', query, { timeout: 10000 }, (err, data)
   console.log('query response:')
   console.log(data)
   console.log('---')
-  peer.done()
 })
 
 exports.peer = peer
