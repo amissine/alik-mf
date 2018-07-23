@@ -1,0 +1,17 @@
+{
+  "name": "test-mac",
+  "version": "0.0.0",
+  "description": "Run mocha tests on macOS",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run unit",
+    "unit": "mocha './*.js'",
+    "lint": "standard"
+  },
+  "keywords": [
+    "mocha",
+    "macOS"
+  ],
+  "author": "Alec Missine",
+  "license": "MIT"
+}
