@@ -38,5 +38,6 @@ function nodeArgs () {
 function workerArgs () {
   let args = ['-w', '-t', 'worker', '-d', '../../']
   args.push('DEBUG=* node worker.js --env=development --wtype=wrk-alik-mf-api --apiPort 1331')
+  // args.push('DEBUG=* node inspect worker.js --env=development --wtype=wrk-alik-mf-api --apiPort 1331')
   return args
 }

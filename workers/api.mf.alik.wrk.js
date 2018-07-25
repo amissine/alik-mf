@@ -10,11 +10,7 @@ class WrkalikMfApi extends WrkApi {
     this.loadConf('mf.alik', 'alik')
 
     this.init()
-    this.start(() => {
-      debug('alik.grcServices[0]=%O\ninit.facilities=%O', 
-        arguments[0].alik.grcServices[0],
-        arguments[0].init.facilities)
-    })
+    this.start()
   }
 
   getPluginCtx (type) {
