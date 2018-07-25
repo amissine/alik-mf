@@ -27,6 +27,7 @@ peer.request('alik:mf', query, { timeout: 10000 }, (err, data) => {
   console.log('query response:')
   console.log(data)
   console.log('---')
+  // console.log(peer.tpool.getActive('127.0.0.1:1331')[0].socket)
 })
 
 exports.peer = peer

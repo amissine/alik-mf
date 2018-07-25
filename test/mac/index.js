@@ -11,8 +11,8 @@ var nodeCount = 0
 describe('Test on macOS', () => {
   before('Start 2 DHT nodes and 1 worker', done => {
     spawn('ttab', nodeArgs())
-    spawn('ttab', nodeArgs())
-    setTimeout(spawn, 5000, 'ttab', workerArgs())
+    setTimeout(spawn, 2000, 'ttab', nodeArgs())
+    setTimeout(spawn, 4000, 'ttab', workerArgs())
     done()
   })
   after('Stop all nodes', done => {
@@ -20,12 +20,11 @@ describe('Test on macOS', () => {
   })
   it('runs the example', done => {
     setTimeout(() => {
-      let peer = require('../../example')
+      require('../../example')
       setTimeout(() => {
-        console.log(peer.link)
         done()
-      }, 4000)
-    }, 10000)
+      }, 8000)
+    }, 8000)
   }).timeout(20000)
 })
 function nodeArgs () {
@@ -38,6 +37,6 @@ function nodeArgs () {
 }
 function workerArgs () {
   let args = ['-w', '-t', 'worker', '-d', '../../']
-  args.push('node worker.js --env=development --wtype=wrk-alik-mf-api --apiPort 1331')
+  args.push('DEBUG=* node worker.js --env=development --wtype=wrk-alik-mf-api --apiPort 1331')
   return args
 }

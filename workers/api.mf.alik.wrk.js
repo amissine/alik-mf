@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug')('alik:mf')
 const { WrkApi } = require('bfx-wrk-api')
 
 class WrkalikMfApi extends WrkApi {
@@ -9,7 +10,11 @@ class WrkalikMfApi extends WrkApi {
     this.loadConf('mf.alik', 'alik')
 
     this.init()
-    this.start()
+    this.start(() => {
+      debug('alik.grcServices[0]=%O\ninit.facilities=%O', 
+        arguments[0].alik.grcServices[0],
+        arguments[0].init.facilities)
+    })
   }
 
   getPluginCtx (type) {
