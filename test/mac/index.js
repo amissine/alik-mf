@@ -20,7 +20,8 @@ describe('Test on macOS', () => {
   })
   it('runs the example', done => {
     setTimeout(() => {
-      require('../../example')
+      let peer = require('../../example')
+      peer.foo = 'bar'
       setTimeout(() => {
         done()
       }, 8000)
