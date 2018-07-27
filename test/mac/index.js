@@ -24,9 +24,9 @@ describe('Test on macOS', () => {
       peer.foo = 'bar'
       setTimeout(() => {
         done()
-      }, 8000)
-    }, 8000)
-  }).timeout(20000)
+      }, 2000)
+    }, 6000)
+  }).timeout(10000)
 })
 function nodeArgs () {
   let bn = `'127.0.0.1:${dpBase + nodeCount++}'`

@@ -12,8 +12,7 @@ const link = new Link({
 
 link.start()
 
-const peer = new Peer(link, {})
-peer.done = process.exit
+var peer = new Peer(link, {})
 peer.init()
 
 const query = {
@@ -32,7 +31,8 @@ peer.request('alik:mf', query, { timeout: 10000 }, (err, data) => {
   console.log('---')
   // debug(peer.tpool.getActive('127.0.0.1:1331')[0])
   debug('peer.foo=%s', peer.foo)
-  peer.done()
+  link.stop(); peer.stop()
+  // process.exit
 })
 
 exports.peer = peer
