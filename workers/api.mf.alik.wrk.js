@@ -27,6 +27,7 @@ class WrkalikMfApi extends WrkApi {
 
   init () {
     super.init()
+    debug('init started')
   }
 }
 
