@@ -1,5 +1,14 @@
 # alik-mf
 
+The Market Feed project is a component of the ALI Kernel suite of projects. The market feed itself is one or more streams of trades and orders from one or more token exchanges. The goal of the project is to _securely_ pass this feed to the customer in a _reliable_ and _scalable_ manner.
+
+ - _Security_ guarantees the customer is the only feed recipient and no man-in-the-middle attack can compromize the feed.
+ - _Reliability_ guarantees the feed is available to the customer as long as it is available from the token exchange.
+ - _Scalability_ guarantees the latency of the feed remains minuscule as the number of token exchanges grows with time.
+
+The feed gets passed to the customer by the Market Feed Local Agent (MFLA) component in a number of ways. For example, the MFLA can produce one or more files to be read by the customer with `tail -f ./feedN`. Or you can pipe MFLA __sysout__ to the customer's __sysin__ with `./mfla | ./customer`. Or any other custom solution can be used.
+
+When the MFLA component resides on the customer's device, it receives the market feed from the ALIK cloud over SSH. When the customer component is part of the ALIK cloud, no SSH is required. The ALIK cloud is based on the [Grenache Grape](https://github.com/amissine/grenache-grape.git) solution from [Bitfinex.com](https://github.com/bitfinexcom/grenache.git). 
 ## Setup
 
 Run two Grapes:
