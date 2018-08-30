@@ -13,3 +13,6 @@ package-lock.json
 *.swo
 *.swp
 *~
+
+# sandbox demos
+sandbox/d1-*
