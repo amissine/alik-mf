@@ -19,7 +19,7 @@ static inline int udpFdBnd (const char *port, int options) {
   hints.ai_flags = AI_PASSIVE;
 
   int rc, fd;
-  if (rc = getaddrinfo(NULL, port, &hints, &result)) {
+  if ((rc = getaddrinfo(NULL, port, &hints, &result))) {
     fprintf(stderr, "getaddrinfo rc=%d, %s\n", rc, gai_strerror(rc));
     exit(EXIT_FAILURE);
   };
@@ -43,7 +43,7 @@ static inline int udpFd (const char *host, const char *port, int options) {
   hints.ai_socktype = SOCK_DGRAM;
 
   int rc, fd;
-  if (rc = getaddrinfo(host, port, &hints, &result)) {
+  if ((rc = getaddrinfo(host, port, &hints, &result))) {
     fprintf(stderr, "getaddrinfo rc=%d, %s\n", rc, gai_strerror(rc));
     exit(EXIT_FAILURE);
   };
